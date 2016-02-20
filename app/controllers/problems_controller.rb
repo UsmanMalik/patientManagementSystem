@@ -1,5 +1,6 @@
 class ProblemsController < ApplicationController
   before_action :set_problem, only: [:show, :edit, :update, :destroy]
+  before_action :confirm_logged_in
 
   layout "master"
 

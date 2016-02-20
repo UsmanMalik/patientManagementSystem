@@ -1,5 +1,6 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
+  before_action :confirm_logged_in
 
   layout "master"
 
@@ -37,7 +38,7 @@ class PatientsController < ApplicationController
         else
         # Can send email or something
         end
-        
+
         format.html { redirect_to @patient, notice: 'Patient was successfully created.' }
         format.json { render :show, status: :created, location: @patient }
       else
