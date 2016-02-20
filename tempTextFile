@@ -1,0 +1,6 @@
+Patient Demographics , Name , age, Date of Birth, sex, address, phone . ( SMS consent)
+
+rails generate scaffold Patient name:string age:integer email:string date_of_birth:date sex:string address:text phone:string isSms:boolean
+
+rails generate scaffold Problem current_problem:string history:integer diagnosis:string
+
