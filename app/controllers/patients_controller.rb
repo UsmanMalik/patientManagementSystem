@@ -30,6 +30,14 @@ class PatientsController < ApplicationController
 
     respond_to do |format|
       if @patient.save
+
+        #check sms sonsent here
+        if @patient.isSms == true
+          send_pin(@patient.name, @patient.phone)
+        else
+        # Can send email or something
+        end
+        
         format.html { redirect_to @patient, notice: 'Patient was successfully created.' }
         format.json { render :show, status: :created, location: @patient }
       else
@@ -73,4 +81,17 @@ class PatientsController < ApplicationController
     def patient_params
       params.require(:patient).permit(:name, :age, :email, :date_of_birth, :sex, :address, :phone, :isSms)
     end
+
+    def twilio_client
+      Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'])
+    end
+
+    def send_pin(name, phone)
+    twilio_client.messages.create(
+      to: phone,
+      from: ENV['TWILIO_PHONE_NUMBER'],
+      body: "Hello #{name}, You will receive text messages from Patient Management System."
+    )
+    end
+
 end

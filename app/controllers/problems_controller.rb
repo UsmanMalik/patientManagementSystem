@@ -74,4 +74,5 @@ class ProblemsController < ApplicationController
     def problem_params
       params.require(:problem).permit(:current_problem, :history, :diagnosis, :avatar)
     end
+
 end

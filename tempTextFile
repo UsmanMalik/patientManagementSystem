@@ -1,6 +1,20 @@
+
+
+https://www.twilio.com/blog/2015/06/sms-phone-verification-in-rails-4-using-ajax-and-twilio.html
+https://www.twilio.com/user/account/voice/dashboard
+https://www.twilio.com/user/account/phone-numbers/incoming
+
+export TWILIO_PHONE_NUMBER="+1 707-595-2290"
+
+
 Patient Demographics , Name , age, Date of Birth, sex, address, phone . ( SMS consent)
 
 rails generate scaffold Patient name:string age:integer email:string date_of_birth:date sex:string address:text phone:string isSms:boolean
 
 rails generate scaffold Problem current_problem:string history:integer diagnosis:string
+
+rails g migration AddPatientToProblems patient:references
+
+rails generate scaffold Admin name:string email:string password:string
+
 

@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
   
+  get 'access/index'
+
+  get 'access/login'
+
+  resources :admins
   resources :problems
   resources :patients
+
+   match ':controller(/:action(/:id))', :via => [:get, :post]
+
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
