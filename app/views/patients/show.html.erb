@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<!-- <p>
   <strong>Name:</strong>
   <%= @patient.name %>
 </p>
@@ -39,6 +39,80 @@
   <strong>Issms:</strong>
   <%= @patient.isSms %>
 </p>
+ -->
 
-<%= link_to 'Edit', edit_patient_path(@patient) %> |
-<%= link_to 'Back', patients_path %>
+
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Patient Details</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Age</th>
+                                                        <th>Email</th>
+                                                        <th>Date of Birth</th>
+                                                        <th>Sex</th>
+                                                        <th>Address</th>
+                                                        <th>Phone</th>
+                                                        <th>Is Sms</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><%= @patient.name %></td>
+                                                        <td><%= @patient.age %></td>
+                                                        <td><%= @patient.email %></td>
+                                                        <td><%= @patient.date_of_birth %></td>
+                                                        <td><%= @patient.sex %></td>
+                                                        <td><%= @patient.address %></td>
+                                                        <td><%= @patient.phone %></td>
+                                                        <td><%= @patient.isSms %></td>
+                                                    </tr>
+                                                    <!-- <tr>
+                                                        <td>2</td>
+                                                        <td>Jacob</td>
+                                                        <td>Thornton</td>
+                                                        <td>@fat</td>
+                                                        <td>20</td>
+                                                        <td>Cityname</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3</td>
+                                                        <td>Larry</td>
+                                                        <td>the Bird</td>
+                                                        <td>@twitter</td>
+                                                        <td>20</td>
+                                                        <td>Cityname</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>4</td>
+                                                        <td>Steve</td>
+                                                        <td>Mac Queen</td>
+                                                        <td>@steve</td>
+                                                        <td>20</td>
+                                                        <td>Cityname</td>
+                                                    </tr> -->
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- End row -->
+
+
+<%= link_to 'Edit', edit_patient_path(@patient) , class: "btn btn-primary m-b-5" %> |
+<%= link_to 'Back', patients_path , class: "btn btn-primary m-b-5" %>

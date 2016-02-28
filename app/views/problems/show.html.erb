@@ -1,34 +1,62 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Current problem:</strong>
-  <%= @problem.current_problem %>
-</p>
 
-<p>
-  <strong>History:</strong>
-  <%= @problem.history %>
-</p>
 
-<p>
-  <strong>Diagnosis:</strong>
-  <%= @problem.diagnosis %>
-</p>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Patient Details</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Current problem</th>
+                                                        <th>History</th>
+                                                        <th>Diagnosis</th>
+                                                        <th>Image</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><%= @problem.patient.name %></td>
+                                                        <td><%= @problem.current_problem %></td>
+                                                        <td><%= @problem.history %></td>
+                                                        <td><%= @problem.diagnosis %></td>
+                                                        <td><%= image_tag @problem.avatar.url(:thumb) %></td>
+                                                        
+                                                    </tr>
+                                                  
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- End row -->
 
-<p>
-  <strong>Avatar</strong>
-  <%= image_tag @problem.avatar.url %>
-</p>
 
-<p>
-  <strong>Avatar Medium</strong>
-  <%= image_tag @problem.avatar.url(:medium) %>
-</p>
 
-<p>
-  <strong>Avatar Medium</strong>
-  <%= image_tag @problem.avatar.url(:thumb) %>
-</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

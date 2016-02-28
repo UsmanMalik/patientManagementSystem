@@ -1,35 +1,60 @@
-<%= form_for(@problem) do |f| %>
-  <% if @problem.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@problem.errors.count, "error") %> prohibited this problem from being saved:</h2>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><h3 class="panel-title"></h3></div>
+                            <div class="panel-body">
+<!--                                 <form class="form-horizontal" role="form"> -->
+                                <p "form-horizontal" role="form">
+                                <%= form_for(@problem) do |f| %>
+                                    
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label"> Patient </label>
+                                        <div class="col-md-10">                
+                                      <%= f.text_field :patient_id , class: "form-control" %>
+                                    </div> 
+                                    </div>  <br /><br /><br />
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">Current Problem</label>
+                                        <div class="col-md-10">
+                                      <%= f.text_field :current_problem , class: "form-control" %>
+                                    </div>
+                                    </div><br /><br /><br />
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">History</label>
+                                        <div class="col-md-10">
+                                      <%= f.text_field :history , class: "form-control" %>
+                                    </div>
+                                    </div><br /><br />
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">Diagnosis</label>
+                                        <div class="col-md-10">
+                                      <%= f.text_field :diagnosis , class: "form-control" %>
+                                    </div>
+                                    </div>
+                                    </div><br /><br /><br />
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">Avatar</label>
+                                        <div class="col-md-10">
+                                          <%= f.file_field :avatar  , class: "form-control" %>
+                                    </div><br /><br /><br />
+                                    <div class="form-group">
+<!--                                         <label class="col-md-2 control-label">Submit</label> -->
+                                        <div class="col-md-10">
+                                        <button type="submit" class="btn btn-effect-ripple btn-primary">Submit</button>
+                                     
+                                    </div>
+                                    </div>                               
+                               <% end %>
+                               <br /><br />
+                               </p>
 
-      <ul>
-      <% @problem.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="field">
-    <%= f.label :current_problem %><br>
-    <%= f.text_field :current_problem %>
-  </div>
-  <div class="field">
-  <%= f.hidden_field :patient_id, :value => @problem.patient_id%>
-  </div> 
-  <div class="field">
-    <%= f.label :history %><br>
-    <%= f.text_field :history %>
-  </div>
-  <div class="field">
-    <%= f.label :diagnosis %><br>
-    <%= f.text_field :diagnosis %>
-  </div>
-  <div class="field">
-    <%= f.label :avatar %><br>
-   <%= f.file_field :avatar %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<!--                                 </form>
+ -->                            </div> <!-- panel-body -->
+                        </div> <!-- panel -->
+                    </div> <!-- col -->
+                </div> <!-- End row -->
+
+
+
+
+
