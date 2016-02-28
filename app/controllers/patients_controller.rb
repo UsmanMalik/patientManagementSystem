@@ -84,13 +84,13 @@ class PatientsController < ApplicationController
     end
 
     def twilio_client
-      Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'])
+      Twilio::REST::Client.new("ACbcdd8617b681a624d5041a8644f27209", "f2f6b71ce2206aa6255996fa390c0764")
     end
 
     def send_pin(name, phone)
     twilio_client.messages.create(
       to: phone,
-      from: ENV['TWILIO_PHONE_NUMBER'],
+      from: "+1 707-595-2290",
       body: "Hello #{name}, You will receive text messages from Patient Management System."
     )
     end

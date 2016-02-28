@@ -10,11 +10,13 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= f.label :current_problem %><br>
     <%= f.text_field :current_problem %>
   </div>
+  <div class="field">
+  <%= f.hidden_field :patient_id, :value => @problem.patient_id%>
+  </div> 
   <div class="field">
     <%= f.label :history %><br>
     <%= f.text_field :history %>

@@ -1,4 +1,83 @@
-<p id="notice"><%= notice %></p>
+<style>
+a:visited {
+     color: white; 
+}
+</style>
+
+                <div class="row">
+                  <p id="notice"><%= notice %></p>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <br /><br />  
+                   <%= link_to 'Add new patient', new_patient_path, class: "btn btn-primary m-b-5" %>
+                     <br /><br />  
+                  </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="portlet"><!-- /primary heading -->
+                            <div class="portlet-heading">
+                                <h3 class="portlet-title text-dark text-uppercase">
+                                    Listing Patients
+                                </h3>
+                                <div class="portlet-widgets">
+                                    <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+                                    <span class="divider"></span>
+                                    <a data-toggle="collapse" data-parent="#accordion1" href="#portlet2"><i class="ion-minus-round"></i></a>
+                                    <span class="divider"></span>
+                                    <a href="#" data-toggle="remove"><i class="ion-close-round"></i></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div id="portlet2" class="panel-collapse collapse in">
+                                <div class="portlet-body">
+                                  <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                  <th>Name</th>
+                                                  <th>Age</th>
+                                                  <th>Email</th>
+                                                  <th>Date of birth</th>
+                                                  <th>Problems</th>
+                                                  <th>Phone</th>
+                                                  <th>Is-sms</th>
+                                                  <th colspan="4"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                               <% @patients.each do |patient| %>
+                                                    <tr>
+                                                      <td><%= patient.name %></td>
+                                                      <td><%= patient.age %></td>
+                                                      <td><%= patient.email %></td>
+                                                      <td><%= patient.date_of_birth %></td>
+                                                      <td><%= patient.problems.count %></td>
+                                                      <td><%= patient.phone %></td>
+                                                      <td><%= patient.isSms %></td>
+                                                      <td style="color:white"><%= link_to 'Add Problem', {:controller => 'problems', :action => 'new', :patient_id => patient.id} , class: "label label-primary" %></td>
+                                                      <td style="color:white"><%= link_to 'Show', patient , class: "label label-purple" %></td>
+                                                      <td><%= link_to 'Edit', edit_patient_path(patient) , class: "label label-purple"  %></td>
+                                                      <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' }, class: "label label-pink"  %></td>
+                                                    </tr>
+                                                 <% end %>                                              
+                                           </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- /Portlet -->
+                    </div>
+                </div> <!-- end row -->
+
+
+
+
+<!-- <p id="notice"><%= notice %></p>
 
 <h1>Listing Patients</h1>
 
@@ -39,3 +118,4 @@
 <br>
 
 <%= link_to 'New Patient', new_patient_path %>
+ -->

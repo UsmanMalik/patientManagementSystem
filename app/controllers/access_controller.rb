@@ -22,7 +22,7 @@ class AccessController < ApplicationController
       session[:user_id] = authorized_user.id
       session[:email] = authorized_user.email
       flash[:notice] = "You are now logged in."
-      redirect_to(:action => 'index')
+      redirect_to('/admin/dashboard2.html')
     else
       flash[:notice] = "Invalid email/password combination."
       puts "Invalid email/password combination."

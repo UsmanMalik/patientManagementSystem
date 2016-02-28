@@ -1,4 +1,68 @@
-<p id="notice"><%= notice %></p>
+<style>
+a:visited {
+     color: white; 
+}
+</style>
+
+                <div class="row">
+                  <p id="notice"><%= notice %></p>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="portlet"><!-- /primary heading -->
+                            <div class="portlet-heading">
+                                <h3 class="portlet-title text-dark text-uppercase">
+                                    Listing Problems
+                                </h3>
+                                <div class="portlet-widgets">
+                                    <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+                                    <span class="divider"></span>
+                                    <a data-toggle="collapse" data-parent="#accordion1" href="#portlet2"><i class="ion-minus-round"></i></a>
+                                    <span class="divider"></span>
+                                    <a href="#" data-toggle="remove"><i class="ion-close-round"></i></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div id="portlet2" class="panel-collapse collapse in">
+                                <div class="portlet-body">
+                                  <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                              <tr>
+                                                <th>Patient Name</th>
+                                                <th>Current problem</th>
+                                                <th>History</th>
+                                                <th>Diagnosis</th>
+                                                <th colspan="3"></th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <% @problems.each do |problem| %>
+                                                <tr>
+                                                   <td><%= problem.patient.name %></td>
+                                                  <td><%= problem.current_problem %></td>
+                                                  <td><%= problem.history %></td>
+                                                  <td><%= problem.diagnosis %></td>
+                                                  <td><%= link_to 'Show', problem,  class: "label label-purple" %></td>
+                                                  <td><%= link_to 'Edit', edit_problem_path(problem) , class: "label label-purple" %></td>
+                                                  <td><%= link_to 'Destroy', problem, method: :delete, data: { confirm: 'Are you sure?' } , class: "label label-purple" %></td>
+                                                </tr>
+                                              <% end %>                                              
+                                             </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- /Portlet -->
+                    </div>
+                </div> <!-- end row -->
+
+
+
+
+
+<!-- <p id="notice"><%= notice %></p>
 
 <h1>Listing Problems</h1>
 
@@ -29,3 +93,4 @@
 <br>
 
 <%= link_to 'New Problem', new_problem_path %>
+ -->

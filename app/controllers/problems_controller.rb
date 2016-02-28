@@ -17,7 +17,10 @@ class ProblemsController < ApplicationController
 
   # GET /problems/new
   def new
+    
     @problem = Problem.new
+    # check if patient id is imissing redirect to patients index, maybe with a flash
+    @problem.patient_id = params[:patient_id]
   end
 
   # GET /problems/1/edit
@@ -73,7 +76,7 @@ class ProblemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def problem_params
-      params.require(:problem).permit(:current_problem, :history, :diagnosis, :avatar)
+      params.require(:problem).permit(:current_problem, :history, :diagnosis, :avatar, :patient_id)
     end
 
 end
